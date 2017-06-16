@@ -1,10 +1,7 @@
 <?php
-public static function Order()
-    {
         for ($i=1; $i <4 ; $i++) { 
             echo '<pre>';
-
-            Yii::import('application.vendors.bitexthai.*');
+            
             require_once('bitexthai.php'); // include the class file
 
             $url = 'https://bx.in.th/api/orderbook/?pairing=1';
@@ -13,8 +10,8 @@ public static function Order()
 
             $buy = $result['bids']['0']['0'];
             $volume = $result['bids']['0']['1']*$buy;
-            if($volume>Yii::app()->params['volume'])
-                $volume=Yii::app()->params['volume'];
+            if($volume>100)
+                $volume=100;
 
             
             $bitexthai = new bitexthai('','','');
@@ -65,6 +62,4 @@ public static function Order()
             sleep(12);
         }
         echo '<br>';
-
-        Library::PageRender();
-    }
+ ?>
