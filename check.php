@@ -1,4 +1,5 @@
-  echo '<pre>';
+<?php
+echo '<pre>';
         $url    = 'https://quote.coins.ph/v1/markets';
         $result = file_get_contents($url);
         $rate = json_decode($result, true);
@@ -40,3 +41,4 @@
         echo 'Buy Bx(+0.25%) Sell Bx(-0.25%) = '.($sellBX - $buyBX). 'THB<br>';
         echo '<hr>';
         echo 'Statistic : '.date('Y-m-d H:i:s').'<br>';
+?>
